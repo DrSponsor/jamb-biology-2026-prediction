@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAMB 2026 Biology — 40 Predicted Questions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Source+Sans+3:wght@300;400;500;600&family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080f0a;
+  --surface: #0d1a0f;
+  --card: #111d13;
+  --card2: #152018;
+  --border: #1e3322;
+  --border2: #2a4a30;
+  --accent: #4ade80;
+  --accent2: #86efac;
+  --accent3: #bbf7d0;
+  --warm: #fbbf24;
+  --red: #f87171;
+  --text: #e2ffe8;
+  --muted: #5a8a65;
+  --dim: #2d5035;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Sans 3', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+/* organic dotted background */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: radial-gradient(circle, rgba(74,222,128,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none; z-index: 0;
+}
+
+/* soft ambient glow */
+body::after {
+  content: '';
+  position: fixed;
+  top: -200px; left: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(74,222,128,0.04) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+.wrapper {
+  position: relative; z-index: 1;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 22px 100px;
+}
+
+/* ── PROGRESS BAR ── */
+.pbar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; background: var(--accent);
+  z-index: 9999; transition: width 0.08s linear;
+}
+
+/* ── HEADER ── */
+header {
+  padding: 64px 0 52px;
+  border-bottom: 1px solid var(--border2);
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.h-tag {
+  font-family: 'Fira Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  color: var(--text);
+}
+
+header h1 em {
+  font-style: italic;
+  color: var(--accent);
+  display: block;
+  font-size: 0.55em;
+  letter-spacing: 1px;
+  margin-top: 8px;
+}
+
+.h-deco {
+  position: absolute;
+  right: -10px; top: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 11rem;
+  color: var(--border);
+  line-height: 1;
+  font-weight: 900;
+  font-style: italic;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.5;
+}
+
+.h-legend {
+  display: flex; gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.legend-item {
+  font-family: 'Fira Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  display: flex; align-items: center; gap: 7px;
+  color: var(--muted);
+}
+.ldot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.ldot-r { background: var(--red); }
+.ldot-y { background: var(--warm); }
+.ldot-g { background: var(--accent); }
+
+/* ── STATS ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-bottom: 44px;
+}
+.s-cell {
+  background: var(--surface);
+  padding: 22px 16px;
+  text-align: center;
+}
+.s-num {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+.s-lbl {
+  display: block;
+  font-family: 'Fira Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+/* ── SCORE TRACKER ── */
+.score-box {
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  border-left: 4px solid var(--accent);
+  padding: 18px 24px;
+  margin-bottom: 40px;
+  display: flex; align-items: center; gap: 22px; flex-wrap: wrap;
+}
+.sc-lbl { font-family: 'Fira Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.sc-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1; }
+.sc-track { flex: 1; height: 4px; background: var(--border); min-width: 80px; border-radius: 2px; }
+.sc-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.35s ease; width: 0%; }
+
+/* ── FILTER TABS ── */
+.filters {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.ftab {
+  font-family: 'Fira Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.14s;
+  border-radius: 2px;
+}
+.ftab:hover { border-color: var(--accent); color: var(--accent2); }
+.ftab.on { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 700; }
+
+/* ── TOPIC BLOCK ── */
+.tblock { margin-bottom: 52px; }
+.tblock.hidden { display: none; }
+
+.t-head {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.t-n {
+  font-family: 'Fira Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  min-width: 28px;
+}
+.t-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex: 1;
+  color: var(--text);
+}
+.badge {
+  font-family: 'Fira Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.bc { background: var(--red); color: #fff; }
+.bh { background: var(--warm); color: #1a1000; }
+.bm { background: var(--dim); color: var(--accent3); border: 1px solid var(--muted); }
+.t-bar { flex: 1; max-width: 70px; height: 2px; background: var(--border2); }
+.t-fill { height: 100%; background: var(--accent); }
+
+/* ── QUESTION CARDS ── */
+.qlist { display: flex; flex-direction: column; gap: 8px; }
+
+.qcard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border2);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color 0.13s, background 0.13s;
+  position: relative;
+}
+.qcard:hover { border-left-color: var(--accent); background: var(--card2); }
+.qcard.open { border-left-color: var(--accent); background: var(--card2); }
+.qcard.ok { border-left-color: var(--accent); }
+.qcard.ng { border-left-color: var(--red); }
+
+.q-lbl {
+  font-family: 'Fira Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.q-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+.q-text { font-size: 0.915rem; line-height: 1.7; flex: 1; color: var(--text); }
+.q-text strong { color: var(--accent2); }
+.q-ico {
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.1rem;
+  color: var(--dim);
+  min-width: 18px;
+  text-align: right;
+  transition: transform 0.18s, color 0.14s;
+  margin-top: 2px;
+}
+.qcard.open .q-ico { transform: rotate(45deg); color: var(--accent); }
+
+.q-meta { display: flex; gap: 7px; margin-top: 8px; flex-wrap: wrap; }
+.qtag {
+  font-family: 'Fira Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 2px;
+}
+.qtag-r { background: rgba(248,113,113,0.12); color: var(--red); border: 1px solid rgba(248,113,113,0.25); }
+.qtag-g { background: rgba(74,222,128,0.1); color: var(--accent); border: 1px solid rgba(74,222,128,0.2); }
+.qtag-d { background: rgba(90,138,101,0.15); color: var(--muted); border: 1px solid var(--border2); }
+
+/* ── ANSWER PANEL ── */
+.a-panel {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.qcard.open .a-panel { display: block; }
+
+.opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+@media(max-width: 480px) { .opts { grid-template-columns: 1fr; } }
+
+.opt {
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.79rem;
+  line-height: 1.5;
+  padding: 10px 14px;
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.12s;
+  border-radius: 2px;
+}
+.opt:hover:not(:disabled) { border-color: var(--accent); background: rgba(74,222,128,0.05); }
+.opt.correct { border-color: var(--accent) !important; background: rgba(74,222,128,0.1) !important; color: var(--accent) !important; font-weight: 700; }
+.opt.wrong { border-color: var(--red) !important; background: rgba(248,113,113,0.08) !important; color: var(--red) !important; }
+.opt.reveal { border-color: var(--accent) !important; background: rgba(74,222,128,0.08) !important; color: var(--accent2) !important; }
+
+.expl {
+  display: none;
+  font-family: 'Fira Mono', monospace;
+  font-size: 0.775rem;
+  line-height: 1.85;
+  color: #78a882;
+  background: var(--surface);
+  border-left: 3px solid var(--accent2);
+  padding: 14px 16px;
+  border-radius: 0 2px 2px 0;
+}
+.expl.show { display: block; }
+.expl strong { color: var(--accent3); }
+
+/* ── STRATEGY BOX ── */
+.strat {
+  margin: 52px 0;
+  border: 1px solid var(--border2);
+  background: var(--card2);
+  padding: 32px;
+  position: relative;
+}
+.strat-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.strat-title::after { content: ''; flex: 1; height: 1px; background: var(--border2); }
+.strat ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.strat li {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: #8ab894;
+  padding-left: 18px;
+  position: relative;
+}
+.strat li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-family: 'Fira Mono', monospace; font-size: 12px; top: 2px; }
+
+.back-top {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  background: var(--accent); color: var(--bg);
+  border: none; cursor: pointer;
+  font-size: 18px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fira Mono', monospace;
+  border-radius: 2px;
+  z-index: 100;
+}
+
+@media(max-width: 600px) {
+  .stats { grid-template-columns: repeat(2,1fr); }
+  .h-deco { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="pbar" id="pbar"></div>
+
+<div class="wrapper">
+
+<!-- HEADER -->
+<header>
+  <div class="h-tag">JAMB 2026 · Intelligence File · Biology</div>
+  <h1>Biology<em>40 Predicted Questions</em></h1>
+  <div class="h-deco">Bio</div>
+  <div class="h-legend">
+    <span class="legend-item"><span class="ldot ldot-r"></span>Critical ≥90%</span>
+    <span class="legend-item"><span class="ldot ldot-y"></span>High 75–89%</span>
+    <span class="legend-item"><span class="ldot ldot-g"></span>Medium 60–74%</span>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="s-cell"><span class="s-num">40</span><span class="s-lbl">Questions</span></div>
+  <div class="s-cell"><span class="s-num">9</span><span class="s-lbl">Topics</span></div>
+  <div class="s-cell"><span class="s-num">25</span><span class="s-lbl" style="color:var(--red)">🔥 Critical</span></div>
+  <div class="s-cell"><span class="s-num">10+</span><span class="s-lbl">Yrs Analysed</span></div>
+</div>
+
+<!-- SCORE -->
+<div class="score-box">
+  <div><div class="sc-lbl">Live Score</div><div class="sc-num" id="sc">0 / 0</div></div>
+  <div class="sc-track"><div class="sc-fill" id="sf"></div></div>
+  <div style="font-family:'Fira Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px">ANSWER TO TRACK PROGRESS</div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <button class="ftab on" onclick="filt('all',this)">All (40)</button>
+  <button class="ftab" onclick="filt('cell',this)">Cell Biology</button>
+  <button class="ftab" onclick="filt('genetics',this)">Genetics</button>
+  <button class="ftab" onclick="filt('nutrition',this)">Nutrition</button>
+  <button class="ftab" onclick="filt('transport',this)">Transport</button>
+  <button class="ftab" onclick="filt('respiration',this)">Respiration</button>
+  <button class="ftab" onclick="filt('excretion',this)">Excretion</button>
+  <button class="ftab" onclick="filt('reproduction',this)">Reproduction</button>
+  <button class="ftab" onclick="filt('ecology',this)">Ecology</button>
+  <button class="ftab" onclick="filt('evolution',this)">Evolution & Classification</button>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 1: CELL BIOLOGY  Q1–Q6 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="cell">
+  <div class="t-head">
+    <span class="t-n">01</span>
+    <span class="t-title">Cell Biology & Cell Division</span>
+    <div class="t-bar"><div class="t-fill" style="width:97%"></div></div>
+    <span class="badge bc">Critical</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q1 · Cell Organelles</div>
+      <div class="q-row"><div class="q-text">Which organelle is responsible for the synthesis of <strong>proteins</strong> in the cell?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Every Year</span><span class="qtag qtag-g">98% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Mitochondrion</button>
+          <button class="opt" onclick="ans(this,false)">B. Golgi apparatus</button>
+          <button class="opt" onclick="ans(this,true)">C. Ribosome</button>
+          <button class="opt" onclick="ans(this,false)">D. Lysosome</button>
+        </div>
+        <div class="expl"><strong>Ribosomes</strong> are the sites of protein synthesis (translation of mRNA).<br>Found free in cytoplasm or attached to rough ER.<br>Mitochondria → ATP (energy) | Golgi → packaging/secretion | Lysosome → intracellular digestion.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q2 · Plant vs Animal Cell</div>
+      <div class="q-row"><div class="q-text">Which of the following structures is found in a plant cell but NOT in an animal cell?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Classic Distinction</span><span class="qtag qtag-g">96% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Mitochondria</button>
+          <button class="opt" onclick="ans(this,false)">B. Cell membrane</button>
+          <button class="opt" onclick="ans(this,true)">C. Cell wall</button>
+          <button class="opt" onclick="ans(this,false)">D. Nucleus</button>
+        </div>
+        <div class="expl">Plant cell exclusives: <strong>Cell wall</strong> (cellulose), chloroplasts, large central vacuole.<br>Animal cell exclusives: centrioles, lysosomes (sometimes).<br>Both have: nucleus, mitochondria, ribosomes, cell membrane, ER, Golgi.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q3 · Osmosis</div>
+      <div class="q-row"><div class="q-text">A plant cell is placed in a <strong>hypertonic</strong> solution. What will happen to it?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Every Year</span><span class="qtag qtag-g">97% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. It becomes turgid</button>
+          <button class="opt" onclick="ans(this,true)">B. It becomes plasmolysed</button>
+          <button class="opt" onclick="ans(this,false)">C. It bursts (lysis)</button>
+          <button class="opt" onclick="ans(this,false)">D. No change occurs</button>
+        </div>
+        <div class="expl">Hypertonic solution (higher solute concentration outside) → water moves OUT of cell by osmosis → cell shrinks → <strong>plasmolysis</strong> (cell membrane pulls away from cell wall).<br>Hypotonic solution → water moves IN → turgid (plant cell) or lysis (animal cell).<br>Isotonic → no net movement → flaccid plant cell.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q4 · Mitosis</div>
+      <div class="q-row"><div class="q-text">During which stage of mitosis do chromosomes line up at the equatorial plate (metaphase plate)?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Cell Division</span><span class="qtag qtag-g">92% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Prophase</button>
+          <button class="opt" onclick="ans(this,true)">B. Metaphase</button>
+          <button class="opt" onclick="ans(this,false)">C. Anaphase</button>
+          <button class="opt" onclick="ans(this,false)">D. Telophase</button>
+        </div>
+        <div class="expl"><strong>Metaphase</strong>: chromosomes align at the equatorial plate — the easiest stage to count chromosomes/karyotype.<br>Prophase → chromosomes condense. Anaphase → chromatids pull to poles. Telophase → nuclear envelopes reform.<br>Memory: <strong>PMAT</strong> — Prophase, Metaphase, Anaphase, Telophase.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q5 · Meiosis vs Mitosis</div>
+      <div class="q-row"><div class="q-text">Meiosis differs from mitosis in that meiosis:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">High Frequency</span><span class="qtag qtag-g">93% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Produces 2 genetically identical daughter cells</button>
+          <button class="opt" onclick="ans(this,true)">B. Produces 4 haploid genetically varied cells</button>
+          <button class="opt" onclick="ans(this,false)">C. Does not involve DNA replication</button>
+          <button class="opt" onclick="ans(this,false)">D. Only occurs in somatic (body) cells</button>
+        </div>
+        <div class="expl">Meiosis → <strong>4 haploid (n) genetically unique gametes</strong> (crossing over creates variation).<br>Mitosis → 2 diploid (2n) identical daughter cells (growth, repair).<br>Meiosis occurs in gonads (testes/ovaries). Crossing over in Prophase I is key source of genetic variation.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q6 · Diffusion</div>
+      <div class="q-row"><div class="q-text">Which of the following factors <strong>increases</strong> the rate of diffusion across a cell membrane?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Membrane Transport</span><span class="qtag qtag-g">88% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Increased membrane thickness</button>
+          <button class="opt" onclick="ans(this,false)">B. Decreased concentration gradient</button>
+          <button class="opt" onclick="ans(this,true)">C. Increased surface area</button>
+          <button class="opt" onclick="ans(this,false)">D. Decreased temperature</button>
+        </div>
+        <div class="expl">Rate of diffusion increases with: <strong>larger surface area</strong>, steeper concentration gradient, higher temperature, thinner membrane, smaller molecule size.<br>This is Fick's Law: Rate ∝ (Surface area × Concentration gradient) / Membrane thickness.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 2: GENETICS  Q7–Q12 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="genetics">
+  <div class="t-head">
+    <span class="t-n">02</span>
+    <span class="t-title">Genetics & Heredity</span>
+    <div class="t-bar"><div class="t-fill" style="width:99%"></div></div>
+    <span class="badge bc">Critical</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q7 · Monohybrid Cross</div>
+      <div class="q-row"><div class="q-text">In a cross between two <strong>heterozygous tall plants (Tt × Tt)</strong>, what is the expected phenotypic ratio of tall to short offspring?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Every Year</span><span class="qtag qtag-g">99% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. 1:1</button>
+          <button class="opt" onclick="ans(this,false)">B. 1:2:1</button>
+          <button class="opt" onclick="ans(this,true)">C. 3:1</button>
+          <button class="opt" onclick="ans(this,false)">D. 2:1</button>
+        </div>
+        <div class="expl">Tt × Tt → TT : Tt : tt = 1:2:1 (genotypic ratio)<br>Phenotype: TT and Tt are both tall → <strong>3 tall : 1 short</strong><br>This is Mendel's Law of Segregation. Know this cold — it comes every year.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q8 · Sex-linked Inheritance</div>
+      <div class="q-row"><div class="q-text">Haemophilia is a sex-linked recessive condition. A carrier mother (X^H X^h) marries a normal father (X^H Y). What fraction of their sons will be haemophilic?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Sex Linkage</span><span class="qtag qtag-g">95% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. 0 (none)</button>
+          <button class="opt" onclick="ans(this,true)">B. 1/2 (50%)</button>
+          <button class="opt" onclick="ans(this,false)">C. All of them</button>
+          <button class="opt" onclick="ans(this,false)">D. 1/4 (25%)</button>
+        </div>
+        <div class="expl">Cross: X^H X^h × X^H Y<br>Sons get Y from father; X from mother: X^H Y (normal) or X^h Y (haemophilic) — 50:50.<br><strong>1/2 of sons</strong> will be haemophilic. Daughters cannot be haemophilic (would need X^h X^h).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q9 · Blood Groups (ABO)</div>
+      <div class="q-row"><div class="q-text">A man with blood group AB and a woman with blood group O have children. What blood group(s) can their children have?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Codominance</span><span class="qtag qtag-g">93% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. A, B, AB and O</button>
+          <button class="opt" onclick="ans(this,true)">B. A and B only</button>
+          <button class="opt" onclick="ans(this,false)">C. AB only</button>
+          <button class="opt" onclick="ans(this,false)">D. O only</button>
+        </div>
+        <div class="expl">Father AB = I^A I^B; Mother O = ii<br>Cross: I^A I^B × ii → I^A i (blood group A) and I^B i (blood group B) — equally likely.<br>Children can only be <strong>A or B</strong>. Neither AB nor O possible from this cross.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q10 · Mutation</div>
+      <div class="q-row"><div class="q-text">Sickle cell anaemia is caused by a <strong>point mutation</strong> in which gene?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Mutation</span><span class="qtag qtag-g">88% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Insulin gene on chromosome 11</button>
+          <button class="opt" onclick="ans(this,true)">B. Haemoglobin (beta-globin) gene</button>
+          <button class="opt" onclick="ans(this,false)">C. CFTR gene on chromosome 7</button>
+          <button class="opt" onclick="ans(this,false)">D. BRCA1 gene</button>
+        </div>
+        <div class="expl">Sickle cell anaemia: <strong>single base substitution</strong> in the beta-globin (haemoglobin) gene — glutamic acid → valine at position 6.<br>This causes HbS (sickle haemoglobin). Homozygous (HbSHbS) = disease; heterozygous (HbAHbS) = sickle cell trait (protective against malaria).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q11 · DNA Structure</div>
+      <div class="q-row"><div class="q-text">In a DNA molecule, adenine (A) always pairs with:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Fundamentals</span><span class="qtag qtag-g">96% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Cytosine (C)</button>
+          <button class="opt" onclick="ans(this,false)">B. Guanine (G)</button>
+          <button class="opt" onclick="ans(this,true)">C. Thymine (T)</button>
+          <button class="opt" onclick="ans(this,false)">D. Uracil (U)</button>
+        </div>
+        <div class="expl">Watson-Crick base pairing: <strong>A–T</strong> (2 hydrogen bonds) and <strong>G–C</strong> (3 hydrogen bonds).<br>In RNA: A pairs with <strong>U (Uracil)</strong> instead of T.<br>Memory: <strong>AT-GC</strong> (Adenine-Thymine, Guanine-Cytosine).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q12 · Dihybrid Cross</div>
+      <div class="q-row"><div class="q-text">In a dihybrid cross between two heterozygous parents (AaBb × AaBb), what is the expected phenotypic ratio assuming independent assortment?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Dihybrid</span><span class="qtag qtag-g">90% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. 1:1:1:1</button>
+          <button class="opt" onclick="ans(this,false)">B. 3:1</button>
+          <button class="opt" onclick="ans(this,true)">C. 9:3:3:1</button>
+          <button class="opt" onclick="ans(this,false)">D. 1:2:1</button>
+        </div>
+        <div class="expl">AaBb × AaBb → <strong>9:3:3:1</strong> (Mendel's Law of Independent Assortment).<br>9 A_B_ : 3 A_bb : 3 aaB_ : 1 aabb<br>This ratio is the fingerprint of a dihybrid cross with complete dominance.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 3: NUTRITION  Q13–Q16 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="nutrition">
+  <div class="t-head">
+    <span class="t-n">03</span>
+    <span class="t-title">Nutrition & Digestion</span>
+    <div class="t-bar"><div class="t-fill" style="width:88%"></div></div>
+    <span class="badge bc">Critical</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q13 · Photosynthesis Equation</div>
+      <div class="q-row"><div class="q-text">What are the products of the <strong>light-dependent reaction</strong> of photosynthesis?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Every Year</span><span class="qtag qtag-g">97% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Glucose and water</button>
+          <button class="opt" onclick="ans(this,true)">B. ATP, NADPH, and oxygen</button>
+          <button class="opt" onclick="ans(this,false)">C. CO₂ and water</button>
+          <button class="opt" onclick="ans(this,false)">D. Glucose and CO₂</button>
+        </div>
+        <div class="expl">Light-dependent (thylakoid): Light energy splits water (photolysis) → <strong>O₂ released</strong>; produces <strong>ATP</strong> and <strong>NADPH</strong>.<br>Light-independent (Calvin cycle, stroma): uses ATP + NADPH + CO₂ → G3P → glucose.<br>Overall: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q14 · Digestive Enzymes</div>
+      <div class="q-row"><div class="q-text">Which enzyme is responsible for the digestion of <strong>starch</strong> in the mouth?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Digestion</span><span class="qtag qtag-g">94% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,true)">A. Salivary amylase</button>
+          <button class="opt" onclick="ans(this,false)">B. Pepsin</button>
+          <button class="opt" onclick="ans(this,false)">C. Lipase</button>
+          <button class="opt" onclick="ans(this,false)">D. Trypsin</button>
+        </div>
+        <div class="expl"><strong>Salivary amylase</strong> (ptyalin) in saliva hydrolyses starch → maltose.<br>Pepsin (stomach) → proteins. Lipase (small intestine) → fats. Trypsin (pancreas) → proteins.<br>Table: Starch→amylase | Protein→pepsin/trypsin | Fat→lipase | Maltose→maltase</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q15 · Vitamins & Deficiency</div>
+      <div class="q-row"><div class="q-text">Deficiency of <strong>Vitamin C</strong> causes which disease?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Nutrition</span><span class="qtag qtag-g">90% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Rickets</button>
+          <button class="opt" onclick="ans(this,false)">B. Beri-beri</button>
+          <button class="opt" onclick="ans(this,true)">C. Scurvy</button>
+          <button class="opt" onclick="ans(this,false)">D. Pellagra</button>
+        </div>
+        <div class="expl">Vitamin C (ascorbic acid) deficiency → <strong>Scurvy</strong> (bleeding gums, poor wound healing).<br>Vitamin D → Rickets (bone deformity) | Vitamin B1 → Beri-beri | Vitamin B3 (Niacin) → Pellagra<br>Vitamin A → Night blindness | Vitamin K → poor clotting | Iron → anaemia</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q16 · Food Tests</div>
+      <div class="q-row"><div class="q-text">Which reagent is used to test for the presence of <strong>reducing sugars</strong>?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Food Tests</span><span class="qtag qtag-g">92% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Biuret reagent</button>
+          <button class="opt" onclick="ans(this,false)">B. Iodine solution</button>
+          <button class="opt" onclick="ans(this,true)">C. Benedict's solution</button>
+          <button class="opt" onclick="ans(this,false)">D. Sudan III</button>
+        </div>
+        <div class="expl"><strong>Benedict's solution</strong> (blue) → brick-red/orange precipitate with reducing sugars (glucose, maltose).<br>Biuret → purple = proteins | Iodine → blue-black = starch | Sudan III → red = fats/lipids<br>Non-reducing sugar test: add dilute HCl, heat, neutralise, then Benedict's.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 4: TRANSPORT  Q17–Q20 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="transport">
+  <div class="t-head">
+    <span class="t-n">04</span>
+    <span class="t-title">Transport Systems in Plants & Animals</span>
+    <div class="t-bar"><div class="t-fill" style="width:90%"></div></div>
+    <span class="badge bc">Critical</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q17 · Blood Components</div>
+      <div class="q-row"><div class="q-text">Which blood component is primarily responsible for <strong>fighting infections</strong>?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Blood</span><span class="qtag qtag-g">94% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Red blood cells (erythrocytes)</button>
+          <button class="opt" onclick="ans(this,false)">B. Platelets (thrombocytes)</button>
+          <button class="opt" onclick="ans(this,true)">C. White blood cells (leucocytes)</button>
+          <button class="opt" onclick="ans(this,false)">D. Plasma</button>
+        </div>
+        <div class="expl">White blood cells (leucocytes): <strong>immune defence</strong> — phagocytosis (neutrophils, macrophages) and antibody production (lymphocytes).<br>RBCs → carry O₂ (haemoglobin) | Platelets → clotting | Plasma → transports nutrients, hormones, CO₂, waste.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q18 · Heart Structure</div>
+      <div class="q-row"><div class="q-text">Which chamber of the heart pumps <strong>oxygenated blood</strong> to the body (systemic circulation)?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Circulatory System</span><span class="qtag qtag-g">92% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Right ventricle</button>
+          <button class="opt" onclick="ans(this,false)">B. Right atrium</button>
+          <button class="opt" onclick="ans(this,false)">C. Left atrium</button>
+          <button class="opt" onclick="ans(this,true)">D. Left ventricle</button>
+        </div>
+        <div class="expl"><strong>Left ventricle</strong> → aorta → body (systemic circulation). Has thickest wall (highest pressure).<br>Right ventricle → pulmonary artery → lungs (pulmonary circulation).<br>Blood flow: body → right atrium → right ventricle → lungs → left atrium → left ventricle → body.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q19 · Plant Transport Tissues</div>
+      <div class="q-row"><div class="q-text">Which vascular tissue transports <strong>water and mineral salts</strong> from roots to leaves in plants?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Plant Biology</span><span class="qtag qtag-g">96% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,true)">A. Xylem</button>
+          <button class="opt" onclick="ans(this,false)">B. Phloem</button>
+          <button class="opt" onclick="ans(this,false)">C. Cambium</button>
+          <button class="opt" onclick="ans(this,false)">D. Cortex</button>
+        </div>
+        <div class="expl"><strong>Xylem</strong>: transports water + dissolved minerals upward (unidirectional). Dead cells; lignified walls. Movement driven by transpiration pull.<br><strong>Phloem</strong>: transports organic solutes (sucrose) — translocation — bidirectional. Living sieve tube cells.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q20 · Transpiration</div>
+      <div class="q-row"><div class="q-text">Which of the following conditions will <strong>increase</strong> the rate of transpiration in plants?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Transpiration</span><span class="qtag qtag-g">90% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. High humidity</button>
+          <button class="opt" onclick="ans(this,false)">B. Low temperature</button>
+          <button class="opt" onclick="ans(this,true)">C. High wind speed</button>
+          <button class="opt" onclick="ans(this,false)">D. Low light intensity</button>
+        </div>
+        <div class="expl">Transpiration rate increases with: <strong>high wind speed</strong> (removes water vapour from leaf surface), high temperature, low humidity, high light (stomata open wider).<br>High humidity → reduces diffusion gradient → less transpiration.<br>Stomata close at night/low light → reduces transpiration.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 5: RESPIRATION  Q21–Q24 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="respiration">
+  <div class="t-head">
+    <span class="t-n">05</span>
+    <span class="t-title">Respiration & Gas Exchange</span>
+    <div class="t-bar"><div class="t-fill" style="width:92%"></div></div>
+    <span class="badge bc">Critical</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q21 · Aerobic Respiration</div>
+      <div class="q-row"><div class="q-text">What is the overall equation for aerobic respiration?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Every Year</span><span class="qtag qtag-g">99% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂</button>
+          <button class="opt" onclick="ans(this,true)">B. C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP</button>
+          <button class="opt" onclick="ans(this,false)">C. 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</button>
+          <button class="opt" onclick="ans(this,false)">D. C₆H₁₂O₆ → 2C₃H₆O₃ + ATP</button>
+        </div>
+        <div class="expl">Aerobic: <strong>C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + 38 ATP</strong><br>Option A = alcoholic fermentation (yeast). Option C = photosynthesis (reverse). Option D = lactic acid fermentation.<br>Location: Glycolysis (cytoplasm) → Krebs cycle (mitochondrial matrix) → ETC (inner mitochondrial membrane).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q22 · Anaerobic Respiration</div>
+      <div class="q-row"><div class="q-text">During vigorous exercise, muscles respire anaerobically producing:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Anaerobic</span><span class="qtag qtag-g">90% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Ethanol and CO₂</button>
+          <button class="opt" onclick="ans(this,true)">B. Lactic acid</button>
+          <button class="opt" onclick="ans(this,false)">C. Pyruvate only</button>
+          <button class="opt" onclick="ans(this,false)">D. Water and CO₂</button>
+        </div>
+        <div class="expl">In human muscles (anaerobic): Glucose → Pyruvate → <strong>Lactic acid</strong> (causes muscle fatigue/cramps).<br>In yeast (anaerobic fermentation): Glucose → Pyruvate → Ethanol + CO₂.<br>Oxygen debt: extra O₂ needed after exercise to oxidise accumulated lactic acid.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q23 · ATP</div>
+      <div class="q-row"><div class="q-text">ATP (adenosine triphosphate) is described as the "<strong>energy currency</strong>" of the cell because:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Bioenergetics</span><span class="qtag qtag-g">87% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. It is stored in large quantities in fat</button>
+          <button class="opt" onclick="ans(this,true)">B. It releases energy directly usable by cells when hydrolysed</button>
+          <button class="opt" onclick="ans(this,false)">C. It is made only during photosynthesis</button>
+          <button class="opt" onclick="ans(this,false)">D. It transports glucose to all cells</button>
+        </div>
+        <div class="expl">ATP → ADP + Pᵢ releases ~30.5 kJ/mol of energy in a form cells can <strong>directly use</strong> for work (muscle contraction, active transport, synthesis).<br>Made in: respiration (mitochondria) AND photosynthesis (chloroplasts).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q24 · Gas Exchange Surface</div>
+      <div class="q-row"><div class="q-text">Which feature of the <strong>alveoli</strong> makes them efficient for gas exchange?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-g">85% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Thick walls</button>
+          <button class="opt" onclick="ans(this,false)">B. Lack of blood supply</button>
+          <button class="opt" onclick="ans(this,true)">C. Large surface area, moist thin walls, rich blood supply</button>
+          <button class="opt" onclick="ans(this,false)">D. Muscular walls for ventilation</button>
+        </div>
+        <div class="expl">Alveoli are efficient because: <strong>large surface area</strong> (300 million alveoli ≈ 70 m²), <strong>one-cell-thick moist walls</strong> (short diffusion path), <strong>dense capillary network</strong> (maintains concentration gradient).<br>These are the general features required of any efficient gas exchange surface.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 6: EXCRETION  Q25–Q27 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="excretion">
+  <div class="t-head">
+    <span class="t-n">06</span>
+    <span class="t-title">Excretion & Homeostasis</span>
+    <div class="t-bar"><div class="t-fill" style="width:85%"></div></div>
+    <span class="badge bh">High</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q25 · Kidney Function</div>
+      <div class="q-row"><div class="q-text">The functional unit of the kidney is the:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Every Year</span><span class="qtag qtag-g">98% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Glomerulus</button>
+          <button class="opt" onclick="ans(this,false)">B. Ureter</button>
+          <button class="opt" onclick="ans(this,true)">C. Nephron</button>
+          <button class="opt" onclick="ans(this,false)">D. Loop of Henle</button>
+        </div>
+        <div class="expl">The <strong>nephron</strong> is the structural and functional unit of the kidney (~1 million per kidney).<br>Parts: Glomerulus (filtration) → Bowman's capsule → PCT → Loop of Henle → DCT → collecting duct → urine.<br>Main functions: Ultrafiltration, selective reabsorption, secretion.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q26 · Nitrogenous Waste</div>
+      <div class="q-row"><div class="q-text">The main nitrogenous waste product excreted by humans is:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Excretion</span><span class="qtag qtag-g">92% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Ammonia</button>
+          <button class="opt" onclick="ans(this,false)">B. Uric acid</button>
+          <button class="opt" onclick="ans(this,true)">C. Urea</button>
+          <button class="opt" onclick="ans(this,false)">D. Creatinine</button>
+        </div>
+        <div class="expl">Humans excrete <strong>urea</strong> (made in liver via ornithine cycle from ammonia + CO₂).<br>Fish → ammonia (toxic, diluted by water). Birds/reptiles → uric acid (conserves water). Mammals → urea (less toxic than ammonia).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q27 · Homeostasis</div>
+      <div class="q-row"><div class="q-text">The hormone <strong>insulin</strong> helps maintain blood glucose homeostasis by:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Hormones</span><span class="qtag qtag-g">90% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Stimulating glycogen breakdown in the liver</button>
+          <button class="opt" onclick="ans(this,true)">B. Stimulating uptake of glucose by cells and glycogen synthesis</button>
+          <button class="opt" onclick="ans(this,false)">C. Increasing blood glucose levels</button>
+          <button class="opt" onclick="ans(this,false)">D. Stimulating glucagon release</button>
+        </div>
+        <div class="expl">Insulin (from beta cells of pancreas): <strong>lowers blood glucose</strong> — promotes glucose uptake by cells, stimulates glycogenesis (glucose → glycogen in liver/muscles).<br>Glucagon (alpha cells): raises blood glucose — stimulates glycogenolysis (glycogen → glucose).<br>Type 1 diabetes = no insulin produced.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 7: REPRODUCTION  Q28–Q32 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="reproduction">
+  <div class="t-head">
+    <span class="t-n">07</span>
+    <span class="t-title">Reproduction & Development</span>
+    <div class="t-bar"><div class="t-fill" style="width:88%"></div></div>
+    <span class="badge bc">Critical</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q28 · Pollination</div>
+      <div class="q-row"><div class="q-text">Which of the following is a feature of a <strong>wind-pollinated</strong> flower?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Plant Reproduction</span><span class="qtag qtag-g">90% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Large, brightly coloured petals</button>
+          <button class="opt" onclick="ans(this,false)">B. Sticky, scented stigma</button>
+          <button class="opt" onclick="ans(this,true)">C. Large feathery stigma and light pollen grains</button>
+          <button class="opt" onclick="ans(this,false)">D. Nectar production</button>
+        </div>
+        <div class="expl">Wind-pollinated flowers: <strong>large feathery stigma</strong> (catches airborne pollen), <strong>light/smooth/numerous pollen</strong> (easily carried), small/dull petals (no need to attract insects), exposed dangling anthers, no nectar/scent.<br>Insect-pollinated: large coloured petals, nectar, scent, sticky pollen.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q29 · Fertilisation in Humans</div>
+      <div class="q-row"><div class="q-text">In humans, fertilisation of the egg normally occurs in the:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Human Reproduction</span><span class="qtag qtag-g">92% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Uterus</button>
+          <button class="opt" onclick="ans(this,true)">B. Fallopian tube (oviduct)</button>
+          <button class="opt" onclick="ans(this,false)">C. Ovary</button>
+          <button class="opt" onclick="ans(this,false)">D. Cervix</button>
+        </div>
+        <div class="expl">Fertilisation occurs in the <strong>upper third of the fallopian tube (oviduct)</strong>. The zygote then travels to the uterus for implantation (~6–10 days).<br>Implantation in fallopian tube = ectopic pregnancy (dangerous).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q30 · Menstrual Cycle</div>
+      <div class="q-row"><div class="q-text">Ovulation in a 28-day menstrual cycle typically occurs on approximately which day?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Menstrual Cycle</span><span class="qtag qtag-g">88% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Day 1</button>
+          <button class="opt" onclick="ans(this,false)">B. Day 7</button>
+          <button class="opt" onclick="ans(this,true)">C. Day 14</button>
+          <button class="opt" onclick="ans(this,false)">D. Day 28</button>
+        </div>
+        <div class="expl">Ovulation occurs ~<strong>day 14</strong> in a 28-day cycle, triggered by LH surge.<br>Day 1–5: menstruation | Day 1–14: follicular phase (FSH) | Day 14: ovulation (LH surge) | Day 14–28: luteal phase (progesterone from corpus luteum).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q31 · Seed Dispersal</div>
+      <div class="q-row"><div class="q-text">Which of the following fruits is adapted for <strong>dispersal by animals</strong>?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-g">82% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Dandelion (with parachute-like structure)</button>
+          <button class="opt" onclick="ans(this,false)">B. Coconut (buoyant)</button>
+          <button class="opt" onclick="ans(this,true)">C. Mango (fleshy, edible)</button>
+          <button class="opt" onclick="ans(this,false)">D. Squirting cucumber (explosive)</button>
+        </div>
+        <div class="expl">Animal-dispersed fruits: <strong>fleshy/edible</strong> (mango, guava) — eaten, seeds excreted elsewhere. Or hooked/sticky (Xanthium) — attaches to fur.<br>Wind: dandelion, maple (wings), cotton. Water: coconut (buoyant). Explosive: squirting cucumber, rubber tree.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q32 · STIs</div>
+      <div class="q-row"><div class="q-text">Which of the following sexually transmitted infections is caused by a <strong>virus</strong>?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Health</span><span class="qtag qtag-g">85% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Gonorrhoea</button>
+          <button class="opt" onclick="ans(this,false)">B. Syphilis</button>
+          <button class="opt" onclick="ans(this,true)">C. HIV/AIDS</button>
+          <button class="opt" onclick="ans(this,false)">D. Chlamydia</button>
+        </div>
+        <div class="expl">HIV (Human Immunodeficiency Virus) → AIDS. <strong>Viral STI</strong>.<br>Bacterial STIs: Gonorrhoea (Neisseria gonorrhoeae), Syphilis (Treponema pallidum), Chlamydia (Chlamydia trachomatis).<br>Bacterial infections can be treated with antibiotics; viral STIs cannot be cured (only managed).</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 8: ECOLOGY  Q33–Q37 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="ecology">
+  <div class="t-head">
+    <span class="t-n">08</span>
+    <span class="t-title">Ecology & Environment</span>
+    <div class="t-bar"><div class="t-fill" style="width:85%"></div></div>
+    <span class="badge bc">Critical</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q33 · Food Chain & Energy</div>
+      <div class="q-row"><div class="q-text">In the food chain: Grass → Grasshopper → Toad → Snake → Eagle<br>Which organism is the <strong>primary consumer</strong>?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Every Year</span><span class="qtag qtag-g">98% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Grass</button>
+          <button class="opt" onclick="ans(this,true)">B. Grasshopper</button>
+          <button class="opt" onclick="ans(this,false)">C. Toad</button>
+          <button class="opt" onclick="ans(this,false)">D. Eagle</button>
+        </div>
+        <div class="expl"><strong>Primary consumer</strong> = 1st animal in chain = feeds directly on producers.<br>Grass = producer | Grasshopper = primary consumer | Toad = secondary | Snake = tertiary | Eagle = quaternary (apex predator).<br>Energy decreases at each trophic level (~10% transferred).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q34 · Nitrogen Cycle</div>
+      <div class="q-row"><div class="q-text">Which bacteria are responsible for <strong>nitrogen fixation</strong> — converting atmospheric N₂ into ammonia?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Nutrient Cycles</span><span class="qtag qtag-g">93% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Nitrosomonas</button>
+          <button class="opt" onclick="ans(this,false)">B. Nitrobacter</button>
+          <button class="opt" onclick="ans(this,true)">C. Rhizobium</button>
+          <button class="opt" onclick="ans(this,false)">D. Pseudomonas</button>
+        </div>
+        <div class="expl"><strong>Rhizobium</strong> (in root nodules of legumes) fixes N₂ → ammonia (symbiotic).<br>Also: Azotobacter (free-living in soil).<br>Nitrosomonas → NH₃ to NO₂⁻ (nitrification) | Nitrobacter → NO₂⁻ to NO₃⁻ | Pseudomonas → denitrification (NO₃⁻ → N₂).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q35 · Population Growth</div>
+      <div class="q-row"><div class="q-text">Which type of population growth produces an <strong>S-shaped (sigmoid) curve</strong>?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Population Ecology</span><span class="qtag qtag-g">88% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Exponential (J-curve) growth</button>
+          <button class="opt" onclick="ans(this,true)">B. Logistic growth (limited resources)</button>
+          <button class="opt" onclick="ans(this,false)">C. Declining population</button>
+          <button class="opt" onclick="ans(this,false)">D. Boom-and-bust growth</button>
+        </div>
+        <div class="expl"><strong>Logistic (S-shaped / sigmoid)</strong> growth: rapid growth initially, then slows as population approaches <strong>carrying capacity (K)</strong> due to limiting factors (food, space, competition).<br>J-curve = exponential growth (no limiting factors — unrealistic long-term).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q36 · Ecological Relationships</div>
+      <div class="q-row"><div class="q-text">The relationship between a tapeworm and its human host is an example of:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Symbiosis</span><span class="qtag qtag-g">90% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Mutualism</button>
+          <button class="opt" onclick="ans(this,false)">B. Commensalism</button>
+          <button class="opt" onclick="ans(this,true)">C. Parasitism</button>
+          <button class="opt" onclick="ans(this,false)">D. Predation</button>
+        </div>
+        <div class="expl"><strong>Parasitism</strong>: tapeworm benefits (+); human host harmed (−).<br>Mutualism: both benefit (+/+) — e.g. Rhizobium in legume roots.<br>Commensalism: one benefits, other unaffected (+/0) — e.g. barnacles on whale.<br>Predation: predator kills and eats prey (+/−).</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q37 · Environmental Pollution</div>
+      <div class="q-row"><div class="q-text">Eutrophication in water bodies is primarily caused by excess:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Environment</span><span class="qtag qtag-g">85% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Carbon dioxide from factories</button>
+          <button class="opt" onclick="ans(this,true)">B. Nitrates and phosphates from fertilisers</button>
+          <button class="opt" onclick="ans(this,false)">C. Heavy metals from mining</button>
+          <button class="opt" onclick="ans(this,false)">D. Plastic waste from rivers</button>
+        </div>
+        <div class="expl">Eutrophication: excess <strong>nitrates + phosphates</strong> (from farm runoff, sewage) → algal bloom → algae die → bacteria decompose them → use up O₂ → <strong>deoxygenation</strong> → fish die (dead zone).<br>It's a chain reaction. JAMB tests both the cause AND the sequence.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- TOPIC 9: EVOLUTION & CLASSIFICATION  Q38–Q40 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="tblock" data-topic="evolution">
+  <div class="t-head">
+    <span class="t-n">09</span>
+    <span class="t-title">Evolution, Classification & Adaptation</span>
+    <div class="t-bar"><div class="t-fill" style="width:80%"></div></div>
+    <span class="badge bh">High</span>
+  </div>
+  <div class="qlist">
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q38 · Natural Selection</div>
+      <div class="q-row"><div class="q-text">Darwin's theory of evolution by natural selection states that organisms with <strong>favourable variations</strong> will:</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Evolution</span><span class="qtag qtag-g">90% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Mutate more frequently to adapt faster</button>
+          <button class="opt" onclick="ans(this,true)">B. Survive, reproduce, and pass on traits to offspring</button>
+          <button class="opt" onclick="ans(this,false)">C. Eliminate weaker organisms actively</button>
+          <button class="opt" onclick="ans(this,false)">D. Change their features during their lifetime</button>
+        </div>
+        <div class="expl">Natural selection: individuals with <strong>favourable traits survive</strong> ("survival of the fittest"), reproduce more, pass traits to offspring → allele frequency changes over generations → evolution.<br>NOT Lamarckism (acquired traits are NOT inherited). NOT intentional mutation.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q39 · Classification</div>
+      <div class="q-row"><div class="q-text">What is the correct hierarchical order of biological classification from largest to smallest grouping?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Taxonomy</span><span class="qtag qtag-g">92% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Species → Genus → Family → Order → Class → Phylum → Kingdom</button>
+          <button class="opt" onclick="ans(this,true)">B. Kingdom → Phylum → Class → Order → Family → Genus → Species</button>
+          <button class="opt" onclick="ans(this,false)">C. Kingdom → Class → Phylum → Family → Order → Genus → Species</button>
+          <button class="opt" onclick="ans(this,false)">D. Domain → Species → Genus → Family → Phylum → Class → Order</button>
+        </div>
+        <div class="expl">Correct order (largest→smallest):<br><strong>Kingdom → Phylum → Class → Order → Family → Genus → Species</strong><br>Memory: <strong>"King Philip Came Over For Good Soup"</strong><br>Humans: Animalia → Chordata → Mammalia → Primates → Hominidae → Homo → sapiens.</div>
+      </div>
+    </div>
+
+    <div class="qcard" onclick="tog(this)">
+      <div class="q-lbl">Q40 · Adaptation</div>
+      <div class="q-row"><div class="q-text">Which of the following is a structural adaptation of <strong>xerophytes</strong> (plants in arid/dry habitats) to reduce water loss?</div><div class="q-ico">+</div></div>
+      <div class="q-meta"><span class="qtag qtag-r">Adaptation</span><span class="qtag qtag-g">88% likely</span></div>
+      <div class="a-panel">
+        <div class="opts">
+          <button class="opt" onclick="ans(this,false)">A. Large, thin leaves with many stomata</button>
+          <button class="opt" onclick="ans(this,false)">B. Shallow, wide root system only</button>
+          <button class="opt" onclick="ans(this,true)">C. Thick waxy cuticle, sunken stomata, and reduced leaves (spines)</button>
+          <button class="opt" onclick="ans(this,false)">D. Absence of a cuticle to allow gas exchange</button>
+        </div>
+        <div class="expl">Xerophytes (e.g. cactus, marram grass) adaptations:<br><strong>Thick waxy cuticle</strong> (reduces evaporation) | <strong>Sunken/rolled stomata</strong> (trap moist air) | <strong>Reduced/spiny leaves</strong> (less surface area) | Deep or extensive roots | CAM photosynthesis (open stomata at night).</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- STRATEGY -->
+<div class="strat">
+  <div class="strat-title">Exam Domination Strategy</div>
+  <ul>
+    <li>Genetics (Mendelian crosses, sex linkage, blood groups) appear in <strong>every JAMB Biology paper</strong> — master Punnett squares until they feel like breathing.</li>
+    <li>Cell biology fundamentals (organelle functions, osmosis, mitosis/meiosis) account for roughly 6–8 questions. Know the differences between plant/animal cells cold.</li>
+    <li>Food chains, trophic levels, nutrient cycles (nitrogen, carbon) and ecological relationships appear every year without exception.</li>
+    <li>Memorise all food tests: Benedict's (reducing sugars), Biuret (protein), Iodine (starch), Sudan III (fats). JAMB loves these.</li>
+    <li>Photosynthesis vs. respiration: know BOTH equations, know which organelle each occurs in, know light-dependent vs light-independent stages.</li>
+    <li>Classification mnemonic: <strong>King Philip Came Over For Good Soup</strong> (Kingdom → Phylum → Class → Order → Family → Genus → Species).</li>
+    <li>Vitamin deficiency table: Vit A=night blindness, Vit C=scurvy, Vit D=rickets, Vit B1=beri-beri, Vit K=poor clotting. Memorise as a block.</li>
+    <li>Hormones: Insulin lowers blood glucose; Glucagon raises it. ADH controls water reabsorption. Oestrogen/Progesterone control menstrual cycle.</li>
+  </ul>
+</div>
+
+</div><!-- /wrapper -->
+
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+let answered = 0, correct = 0;
+
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('pbar').style.width = pct + '%';
+});
+
+function tog(card) {
+  const wasOpen = card.classList.contains('open');
+  document.querySelectorAll('.qcard.open').forEach(c => c.classList.remove('open'));
+  if (!wasOpen) card.classList.add('open');
+}
+
+function ans(btn, isCorrect) {
+  event.stopPropagation();
+  const card = btn.closest('.qcard');
+  if (card.dataset.done) return;
+  card.dataset.done = '1';
+  card.querySelectorAll('.opt').forEach(o => o.disabled = true);
+  answered++;
+  if (isCorrect) {
+    btn.classList.add('correct');
+    card.classList.add('ok');
+    correct++;
+  } else {
+    btn.classList.add('wrong');
+    card.classList.add('ng');
+    card.querySelectorAll('.opt').forEach(o => {
+      if (o.getAttribute('onclick').includes('true')) o.classList.add('reveal');
+    });
+  }
+  card.querySelector('.expl').classList.add('show');
+  document.getElementById('sc').textContent = correct + ' / ' + answered;
+  document.getElementById('sf').style.width = ((correct / answered) * 100) + '%';
+}
+
+function filt(topic, btn) {
+  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.tblock').forEach(b => {
+    b.classList.toggle('hidden', topic !== 'all' && b.dataset.topic !== topic);
+  });
+}
+</script>
+</body>
+</html>
